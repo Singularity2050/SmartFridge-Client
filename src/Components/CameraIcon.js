@@ -73,7 +73,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 export default function CameraIcon(props) {
     console.log(props)
-    const IconHeight = window.innerHeight-60;
+    const IconHeight = window.innerHeight-130;
     const IconWidth = window.innerWidth;
     return (
         <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: IconWidth, minHeight: IconHeight }}>

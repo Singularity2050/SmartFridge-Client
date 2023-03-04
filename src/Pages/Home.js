@@ -1,21 +1,17 @@
 import React from "react";
 import NavBottom from "../Components/NavBottom";
-import NavTop from "../Components/NavTop";
-import Camera from "../Components/Camara";
-import {useRecoilState, useSetRecoilState} from "recoil";
-import {textState} from "../recoil";
+import Camera from "../Components/Camera";
+import Theme from "../Components/Theme";
 const Home = () => {
-    const [text, setText] = useRecoilState(textState);
-    console.log(text);
+
     return (
         <>
-            {/*<NavTop/>*/}
-            <Camera />
+            <Theme>
+                <Camera/>
+            </Theme>
             <NavBottom/>
         </>
     );
 };
 
 export default Home;
-
-

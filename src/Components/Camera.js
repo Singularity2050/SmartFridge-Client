@@ -94,7 +94,7 @@ const Camera = () => {
                     videoConstraints={videoConstraints}
                     onUserMedia={onUserMedia}
                     width={window.innerWidth}
-                    height={window.innerHeight-64}
+                    height={window.innerHeight-110}
                 />
                 <IconButton onClick={capturePhoto} style={{position:"absolute", left:window.innerWidth/2-25, top:window.innerHeight-230}}>
                     <SurroundSoundIcon style={{fontSize: "xxx-large"}}fontSize={"large"}/>
