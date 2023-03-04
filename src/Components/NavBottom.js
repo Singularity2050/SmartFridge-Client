@@ -12,39 +12,43 @@ import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import PersonIcon from '@mui/icons-material/Person';
 
 export default function NavBottom() {
-    const [value, setValue] = React.useState('recents');
+	const [value, setValue] = React.useState('recents');
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
+	};
 
-    return (
-        <BottomNavigation sx={{ flexGrow: 1, position:"fixed", width:"100%" }}  value={value} onChange={handleChange}>
-            <BottomNavigationAction
-                label="Home"
-                value="Home"
-                icon={<LocalSeeIcon />}
-            />
-            <BottomNavigationAction
-                label="Ingredient"
-                value="Ingredient"
-                icon={<EggIcon />}
-            />
-            <BottomNavigationAction
-                label="Receipt"
-                value="Receipt"
-                icon={<LibraryBooksIcon />}
-            />
-            <BottomNavigationAction
-                label="Favorites"
-                value="favorites"
-                icon={<FavoriteIcon />}
-            />
-            <BottomNavigationAction
-                label="Profile"
-                value="Profile"
-                icon={<PersonIcon />}
-            />
-        </BottomNavigation>
-    );
+	return (
+		<BottomNavigation
+			sx={{ flexGrow: 1, position: 'fixed', width: '100%' }}
+			value={value}
+			onChange={handleChange}
+		>
+			<BottomNavigationAction
+				label="Home"
+				value="Home"
+				icon={<LocalSeeIcon />}
+			/>
+			<BottomNavigationAction
+				label="Ingredient"
+				value="Ingredient"
+				icon={<EggIcon />}
+			/>
+			<BottomNavigationAction
+				label="Recipe"
+				value="Recipe"
+				icon={<LibraryBooksIcon />}
+			/>
+			<BottomNavigationAction
+				label="Favorites"
+				value="favorites"
+				icon={<FavoriteIcon />}
+			/>
+			<BottomNavigationAction
+				label="Profile"
+				value="Profile"
+				icon={<PersonIcon />}
+			/>
+		</BottomNavigation>
+	);
 }
