@@ -6,6 +6,11 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
+import LocalSeeIcon from '@mui/icons-material/LocalSee';
+import EggIcon from '@mui/icons-material/Egg';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import PersonIcon from '@mui/icons-material/Person';
+
 export default function NavBottom() {
     const [value, setValue] = React.useState('recents');
 
@@ -14,11 +19,21 @@ export default function NavBottom() {
     };
 
     return (
-        <BottomNavigation sx={{ flexGrow: 1 }} value={value} onChange={handleChange}>
+        <BottomNavigation sx={{ flexGrow: 1, position:"fixed", width:"100%" }}  value={value} onChange={handleChange}>
             <BottomNavigationAction
-                label="Recents"
-                value="recents"
-                icon={<RestoreIcon />}
+                label="Home"
+                value="Home"
+                icon={<LocalSeeIcon />}
+            />
+            <BottomNavigationAction
+                label="Ingredient"
+                value="Ingredient"
+                icon={<EggIcon />}
+            />
+            <BottomNavigationAction
+                label="Receipt"
+                value="Receipt"
+                icon={<LibraryBooksIcon />}
             />
             <BottomNavigationAction
                 label="Favorites"
@@ -26,11 +41,10 @@ export default function NavBottom() {
                 icon={<FavoriteIcon />}
             />
             <BottomNavigationAction
-                label="Nearby"
-                value="nearby"
-                icon={<LocationOnIcon />}
+                label="Profile"
+                value="Profile"
+                icon={<PersonIcon />}
             />
-            <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
         </BottomNavigation>
     );
 }

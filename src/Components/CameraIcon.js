@@ -3,14 +3,9 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
+import CamaraIconPNG from "../Image/Camera.jpeg"
+import LoadingButtonsTransition from "./ButtonForReceipt";
 
-const images = [
-    {
-        url: '/Image/camera.jpeg',
-        title: 'Camera',
-        width: '30%',
-    },
-];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
@@ -76,20 +71,21 @@ const ImageMarked = styled('span')(({ theme }) => ({
     transition: theme.transitions.create('opacity'),
 }));
 
-export default function CameraIcon() {
+export default function CameraIcon(props) {
+    console.log(props)
+    const IconHeight = window.innerHeight-60;
+    const IconWidth = window.innerWidth;
     return (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
-            {images.map((image) => (
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: IconWidth, minHeight: IconHeight }}>
                 <ImageButton
                     focusRipple
-                    key={image.title}
-                    style={{
-                        width: image.width,
-                    }}
+                    key={props.image.title}
+                    sx={{minWidth:IconWidth, minHeight:IconHeight}}
+                    onClick={props.controller}
                 >
-                    <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+                    <ImageSrc style={{ backgroundImage: `url(${props.image.url})`, minWidth:IconWidth, minHeight:IconHeight}}/>
                     <ImageBackdrop className="MuiImageBackdrop-root" />
-                    <Image>
+                    <Image sx={{minWidth:IconWidth, minHeight:IconHeight}}>
                         <Typography
                             component="span"
                             variant="subtitle1"
@@ -101,12 +97,11 @@ export default function CameraIcon() {
                                 pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
                             }}
                         >
-                            {image.title}
-                            <ImageMarked className="MuiImageMarked-root" />
+                            {props.image.title}
                         </Typography>
+
                     </Image>
                 </ImageButton>
-            ))}
         </Box>
     );
 }
