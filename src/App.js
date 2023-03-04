@@ -7,6 +7,7 @@ import Favourites from './Pages/Favourites';
 import Recipes from './Pages/Recipes';
 import Ingredients from './Pages/Ingredients';
 import NavBottom from './Components/NavBottom';
+import Ripeness from './Components/Ripeness';
 
 function App() {
 	//Login
@@ -16,6 +17,7 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				{/*<Route path={"/register"} element={<Register/>} />*/}
+         <Route path={"/testripe"} element={<Ripeness/>}/>
 				<Route exact path={'/'} element={<Home />} />
 				<Route path={'/ingredients'} element={<Ingredients />} />
 				<Route path={'/recipes'} element={<Recipes />} />
@@ -24,6 +26,7 @@ function App() {
 			</Routes>
 		</BrowserRouter>
 	);
+
 }
 
 export default App;
