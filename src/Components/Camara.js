@@ -1,5 +1,6 @@
 import React, {useRef } from "react";
 import Webcam from "react-webcam";
+import CameraIcon from "./CameraIcon";
 
 const videoConstraints = {
     width: 540,
@@ -21,6 +22,7 @@ const Camera = () => {
 
     return (
         <>
+            <CameraIcon/>
             <Webcam
                 ref={webcamRef}
                 audio={false}
