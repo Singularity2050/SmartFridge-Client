@@ -18,7 +18,7 @@ export default function CustomizedList() {
 							<DinnerDiningIcon color="primary" />
 						</ListItemIcon>
 						<ListItemText
-							primary="Spicy Pork Recipe"
+							primary="Ingredients"
 							primaryTypographyProps={{
 								color: 'primary',
 								fontWeight: 'medium',

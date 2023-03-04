@@ -17,12 +17,13 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				{/*<Route path={"/register"} element={<Register/>} />*/}
-         <Route path={"/testripe"} element={<Ripeness/>}/>
+         		<Route path={"/testripe"} element={<Ripeness/>}/>
 				<Route exact path={'/'} element={<Home />} />
 				<Route path={'/ingredients'} element={<Ingredients />} />
 				<Route path={'/recipes'} element={<Recipes />} />
 				<Route path={'/favorites'} element={<Favourites />} />
 				<Route path={'/profile'} element={<Profile />} />
+
 			</Routes>
 		</BrowserRouter>
 	);

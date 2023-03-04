@@ -39,12 +39,7 @@ export default function NavBottom() {
 				icon={<EggIcon />}
 				onClick={() => navigate('/ingredients')}
 			/>
-			<BottomNavigationAction
-				label="Recipe"
-				value="Recipe"
-				icon={<LibraryBooksIcon />}
-				onClick={() => navigate('/recipes')}
-			/>
+
 			<BottomNavigationAction
 				label="Favorites"
 				value="favorites"
