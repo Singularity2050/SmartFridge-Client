@@ -12,13 +12,12 @@ function App() {
 	//Login
 	//Registration
 	//Main Page
-
 	return (
 		<BrowserRouter>
 			<Routes>
 				{/*<Route path={"/register"} element={<Register/>} />*/}
 				<Route exact path={'/'} element={<Home />} />
-				<Route path={'/igredients'} element={<Ingredients />} />
+				<Route path={'/ingredients'} element={<Ingredients />} />
 				<Route path={'/recipes'} element={<Recipes />} />
 				<Route path={'/favorites'} element={<Favourites />} />
 				<Route path={'/profile'} element={<Profile />} />
