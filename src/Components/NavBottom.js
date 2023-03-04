@@ -23,7 +23,7 @@ export default function NavBottom() {
 
 	return (
 		<BottomNavigation
-			sx={{ flexGrow: 1, position: 'fixed', width: '100%' }}
+			sx={{ flexGrow: 1, position: 'fixed', width: '100%', bottom: 0 }}
 			value={value}
 			onChange={handleChange}
 		>
@@ -34,15 +34,14 @@ export default function NavBottom() {
 				onClick={() => navigate('/')}
 			/>
 			<BottomNavigationAction
-				label="Ingredient"
-				value="Ingredient"
+				label="Ingredients"
+				value="Ingredients"
 				icon={<EggIcon />}
 				onClick={() => navigate('/ingredients')}
 			/>
-
 			<BottomNavigationAction
 				label="Favorites"
-				value="favorites"
+				value="Favorites"
 				icon={<FavoriteIcon />}
 				onClick={() => navigate('/favorites')}
 			/>

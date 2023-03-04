@@ -34,7 +34,7 @@ const Home = (props) => {
     return (
         <>
             {/*<NavTop/>*/}
-            <Box sx={{ flexGrow: 1, display: 'flex' }}>
+            <Box sx={{ height:window.innerHeight, display: 'flex' }}>
                 <ThemeProvider
                     theme={createTheme({
                         components: {
