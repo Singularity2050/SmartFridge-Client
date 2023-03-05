@@ -37,6 +37,7 @@ export const rows = [
 ];
 
 
+
 // Recipe 1: Banana Yogurt Smoothie
 const bananaYogurtSmoothie = {
 	foodName: 'Banana Yogurt Smoothie',
@@ -105,9 +106,11 @@ const chickenAubergineStirFry = {
 		'Serve and enjoy!',
 	],
 };
+
 export const recipes = [
 	bananaYogurtSmoothie,
 	cottageCheeseAubergineSalad,
 	tunaCheeseCrackers,
 	chickenAubergineStirFry,
 ];
+
