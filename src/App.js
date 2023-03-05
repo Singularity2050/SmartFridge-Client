@@ -8,17 +8,21 @@ import Recipes from './Pages/Recipes';
 import Ingredients from './Pages/Ingredients';
 import NavBottom from './Components/NavBottom';
 import Ripeness from './Components/Ripeness';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
 
 function App() {
 	//Login
 	//Registration
 	//Main Page
+
 	return (
 		<BrowserRouter>
 			<Routes>
-				{/*<Route path={"/register"} element={<Register/>} />*/}
-         <Route path={"/testripe"} element={<Ripeness/>}/>
-				<Route exact path={'/'} element={<Home />} />
+				<Route path={'/'} element={<Login />} />
+				<Route path={'/register'} element={<Register />} />
+				<Route path={'/testripe'} element={<Ripeness />} />
+				<Route path={'/home'} element={<Home />} />
 				<Route path={'/ingredients'} element={<Ingredients />} />
 				<Route path={'/recipes'} element={<Recipes />} />
 				<Route path={'/favorites'} element={<Favourites />} />
@@ -26,7 +30,6 @@ function App() {
 			</Routes>
 		</BrowserRouter>
 	);
-
 }
 
 export default App;

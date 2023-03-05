@@ -31,7 +31,7 @@ export default function NavBottom() {
 				label="Home"
 				value="Home"
 				icon={<LocalSeeIcon />}
-				onClick={() => navigate('/')}
+				onClick={() => navigate('/home')}
 			/>
 			<BottomNavigationAction
 				label="Ingredient"
