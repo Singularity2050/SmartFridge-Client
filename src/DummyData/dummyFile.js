@@ -52,6 +52,7 @@ const bananaYogurtSmoothie = {
 		'Add the natural yogurt and milk to the blender and blend until smooth.',
 		'If desired, add honey to taste and blend again.',
 	],
+	remarks:"Expiring"
 };
 
 // Recipe 2: Cottage Cheese and Aubergine Salad
@@ -71,6 +72,7 @@ const cottageCheeseAubergineSalad = {
 		'Allow the aubergine to cool slightly, then combine with the cottage cheese and remaining olive oil.',
 		'Serve and enjoy!',
 	],
+	remarks:"Eco"
 };
 
 // Recipe 3: Tuna and Cheese Crackers
@@ -86,6 +88,7 @@ const tunaCheeseCrackers = {
 		'Top each cracker with a small spoonful of tuna.',
 		'Serve and enjoy!',
 	],
+	remarks:""
 };
 
 // Recipe 4: Chicken and Aubergine Stir Fry
@@ -105,6 +108,7 @@ const chickenAubergineStirFry = {
 		'Add the chicken and aubergine to the skillet and stir fry for 10-12 minutes, until the chicken is cooked through and the aubergine is tender.',
 		'Serve and enjoy!',
 	],
+	remarks:""
 };
 
 export const recipes = [

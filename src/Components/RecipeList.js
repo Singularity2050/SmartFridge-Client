@@ -7,15 +7,18 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Rating from "../Components/Rate"
+import Badge from "@mui/material/Badge";
 export default function AlignItemsList(props) {
     return (
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+
             <ListItem alignItems="flex-start">
                 <Rating heart={props.heart}/>
                 <ListItemText
                     primary={props.data.foodName}
                     secondary={
                         <React.Fragment>
+
                             <Typography
                                 sx={{ display: 'inline' }}
                                 component="span"
@@ -30,8 +33,14 @@ export default function AlignItemsList(props) {
                     }
                     onClick={props.handler}
                 />
+                { props.data.remarks=="Eco" &&  <Badge  sx={{color:"white"}} badgeContent={props.data.remarks} color="success">
 
+                </Badge>}
+                { props.data.remarks=="Expiring" &&  <Badge  badgeContent={props.data.remarks} color="secondary">
+
+                </Badge>}
             </ListItem>
+
             <Divider variant="inset" component="li" />
         </List>
     );
