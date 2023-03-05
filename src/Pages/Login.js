@@ -49,31 +49,7 @@ const Login = () => {
 	};
 
 	const handleLogIn = async (e) => {
-		const userInfo = {
-			email: email,
-			password: password,
-		};
-		try {
-			const response = await fetch('http://localhost:3333/users/login', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(userInfo),
-			});
-			const user = await response.json();
-			setGlobalUser(user);
-			console.log('user', user);
-
-			if (user) {
-				navigate('/home');
-			} else {
-				console.log('wrong email or password!');
-				navigate('/');
-			}
-		} catch (error) {
-			console.error(error);
-		}
+		navigate('/home');
 	};
 
 	const handleRegister = () => {
@@ -101,7 +77,7 @@ const Login = () => {
 							}}
 						>
 							<Typography component="h1" variant="h5">
-								Smart Fridge
+								❄ Smart Fridge ❄
 							</Typography>
 							[Mobile View Only]
 							<Box

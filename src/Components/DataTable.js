@@ -9,9 +9,9 @@ export default function DataTable() {
     const height = window.innerHeight;
     const [loading,setLoading] = useState(false);
     const columns = [
-        { field: 'item', headerName: 'Item', width: height/10 },
+        { field: 'item', headerName: 'Item', width: 150 },
         { field: 'quantity', headerName: 'Quantity', width: 80 },
-        {field: 'exp', headerName: 'Expire Data', width: 90},
+        {field: 'exp', headerName: 'Expire Data', width: 150},
     ];
     const onClickHandeler = async () =>{
         setLoading(true);
@@ -19,7 +19,7 @@ export default function DataTable() {
         navigate('/recipes');
     }
     return (
-        <div style={{ height: window.innerHeight-230, width: '90%' }}>
+        <div style={{ height: window.innerHeight-230, width: '100%' }}>
             <LoadingButton variant="contained" color="success" loading={loading} onClick={onClickHandeler}>
                 Generate Recipe
             </LoadingButton>

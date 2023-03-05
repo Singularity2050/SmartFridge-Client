@@ -9,6 +9,7 @@ import ListItem from "@mui/material/ListItem";
 import AlignItemsList from "../Components/RecipeList";
 import Modal from "../Components/Modal";
 import ReceptModel from "../Components/Modal";
+import {recipes} from "../DummyData/dummyFile";
 
 const Favourites = () => {
 	return (
@@ -29,7 +30,7 @@ const Favourites = () => {
 						/>
 					</ListItemButton>
 				</ListItem>
-				<ReceptModel heart={1}/>
+				<ReceptModel heart={1} data={[recipes[0]]}/>
 			</Theme>
 			<NavBottom/>
 		</>

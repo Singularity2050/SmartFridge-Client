@@ -112,15 +112,10 @@ export default function ProfileComponent(props) {
 		<>
 			<Typography variant="h4" margin={1} marginTop={3}>
 				{' '}
-				Abhishek CoConut
-				{globalUser}
+				Abisek's Fridge
 			</Typography>
-			<Rating
-				name="half-rating"
-				defaultValue={0.5}
-				precision={0.5}
-				margin={1}
-			/>
+			<p style={{margin:0, marginLeft:10}}>Current Eco Point: 40</p>
+			<p style={{margin:0, marginLeft:10}}>My Tier: Platinum</p>
 			<hr />
 			<div className="wrapper">
 				<div className="graphContainer">
@@ -130,7 +125,7 @@ export default function ProfileComponent(props) {
 						colors={[line1Color]}
 						layers={['grid', 'axes', 'lines', 'markers', 'legends']}
 						axisLeft={{
-							legend: 'My Spending ($)',
+							legend: 'My Eco Point ($)',
 							legendPosition: 'middle',
 							legendOffset: -40,
 						}}
@@ -152,7 +147,7 @@ export default function ProfileComponent(props) {
 			<TextField
 				id="outlined-read-only-input"
 				label="My Contact Email"
-				defaultValue="sije.park@stonybrook.edu"
+				defaultValue="Abisek.Gare@stonybrook.edu"
 				value={globalUser.email}
 				InputProps={{
 					readOnly: true,

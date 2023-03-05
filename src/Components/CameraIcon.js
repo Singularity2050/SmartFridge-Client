@@ -98,8 +98,8 @@ export default function CameraIcon(props) {
                                 pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
                             }}
                         >
-                            Click Here!
-                            <CameraIcon2 style={{fontSize: "xxx-large", position:"absolute",left:0,bottom:-35, textShadow:"10px 10px red"}} fontSize={"large"}/>
+                            Scan Your Receipt
+                            <CameraIcon2 style={{fontSize: "xxx-large", position:"absolute",left:30,bottom:-35, textShadow:"10px 10px red"}} fontSize={"large"}/>
                         </Typography>
 
                     </Image>

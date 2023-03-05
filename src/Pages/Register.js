@@ -52,31 +52,7 @@ const Register = () => {
 	};
 
 	const handleRegister = async (e) => {
-		e.preventDefault();
-
-		const userInfo = {
-			name: name,
-			email: email,
-			password: password,
-		};
-		try {
-			const response = await fetch('http://localhost:3333/users/new', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(userInfo),
-			});
-
-			const newUser = await response.json();
-			setGlobalUser(newUser);
-
-			console.log(newUser);
-
-			navigate('/home');
-		} catch (error) {
-			console.error(error);
-		}
+			navigate('/');
 	};
 
 	return (

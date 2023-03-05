@@ -28,30 +28,37 @@ export default function ReceptModel(props) {
     const handleClose = () => {
         setOpen(false);
     };
-
+    console.log(props.data);
     return (
         <div>
-            <AlignItemsList handler={handleOpen} heart={props.heart}/>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="parent-modal-title"
-                aria-describedby="parent-modal-description"
-            >
-                <Box sx={{ ...style, width: window.innerWidth-70 }}>
-                    <h2 id="parent-modal-title" style={{color:"white"}}>Ketchup Butter Soup</h2>
-                    <p id="parent-modal-description" style={{color:"white"}}>
-                        [Two] Tomato
-                    </p>
-                    <p id="parent-modal-description" style={{color:"white"}}>
-                        [1Kg] Butter
-                    </p>
-                    <p id="parent-modal-description" style={{color:"white"}}>
-                        [200ml] Water
-                    </p>
-                    <Button onClick={handleClose}>Close</Button>
-                </Box>
-            </Modal>
+            {props.data.map((ele) => (
+                <>
+                    <AlignItemsList handler={handleOpen} heart={props.heart} data={ele}/>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="parent-modal-title"
+                    aria-describedby="parent-modal-description"
+                >
+                    <Box sx={{ ...style, width: window.innerWidth-70 }}>
+                        <h3 id="parent-modal-title" style={{color:"white"}}>{ele.foodName}</h3>
+                        <h3 id="parent-modal-title" style={{color:"white"}}>Ingredients</h3>
+                        {ele.ingredients.map((igd) =>(
+                            <p id="parent-modal-description" style={{color:"white"}}>
+                                [{igd.quantity}] {igd.itemName}
+                            </p>
+                        ))}
+                        <h2 id="parent-modal-title" style={{color:"white"}}>Instructions</h2>
+                        {ele.instructions.map((instruction,idx) =>(
+                            <p id="parent-modal-description" style={{color:"white"}}>
+                                {idx+1}:  {instruction}
+                            </p>
+                        ))}
+                        <Button onClick={handleClose}>Close</Button>
+                    </Box>
+                </Modal>
+                </>
+                ))}
         </div>
     );
 }

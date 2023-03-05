@@ -11,6 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import AlignItemsList from "../Components/RecipeList";
 import ReceptModel from "../Components/Modal";
+import {recipes} from "../DummyData/dummyFile";
 const Recipes = () => {
     return (
         <>
@@ -30,7 +31,7 @@ const Recipes = () => {
                         />
                     </ListItemButton>
                 </ListItem>
-                <ReceptModel heart={0}/>
+                <ReceptModel heart={0} data={recipes}/>
             </Theme>
             <NavBottom/>
         </>

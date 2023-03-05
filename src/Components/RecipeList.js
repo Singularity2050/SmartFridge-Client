@@ -13,7 +13,7 @@ export default function AlignItemsList(props) {
             <ListItem alignItems="flex-start">
                 <Rating heart={props.heart}/>
                 <ListItemText
-                    primary="ketchup Butter Soup"
+                    primary={props.data.foodName}
                     secondary={
                         <React.Fragment>
                             <Typography
@@ -22,9 +22,10 @@ export default function AlignItemsList(props) {
                                 variant="body2"
                                 color="text.primary"
                             >
-
+                                {props.data.ingredients.map((igd) =>(
+                                    igd.itemName + ", "
+                                ))}
                             </Typography>
-                            {"This cuisine is Abhishek's favorite food. Warning!! you could die"}
                         </React.Fragment>
                     }
                     onClick={props.handler}
