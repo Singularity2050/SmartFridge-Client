@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
+import CameraIcon2 from '@mui/icons-material/Camera';
 import CamaraIconPNG from "../Image/Camera.jpeg"
 import LoadingButtonsTransition from "./ButtonForReceipt";
 
@@ -97,7 +98,8 @@ export default function CameraIcon(props) {
                                 pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
                             }}
                         >
-                            {props.image.title}
+                            Click Here!
+                            <CameraIcon2 style={{fontSize: "xxx-large", position:"absolute",left:0,bottom:-35, textShadow:"10px 10px red"}} fontSize={"large"}/>
                         </Typography>
 
                     </Image>

@@ -59,7 +59,10 @@ const Camera = ({setImage,image,setImageFile,text, setText}) => {
     const webcamRef = useRef(null);
     // const [image, setImage] = React.useState(basicImages);
     const [onCamera, setOnCamera] = React.useState(false);
-    const setOnCameraController = () => setOnCamera(true);
+    const setOnCameraController = async () => {
+        await new Promise(r => setTimeout(r, 500));
+        setOnCamera(true);
+    }
     const setOffCameraController = () =>setOnCamera(false);
     const [mode,setMode] = React.useState("basicMode"); // There are two mode: basic mode and capture mode ("basicMode", "capturedMode")
     const setModeController = (mode) => setMode(mode);
@@ -87,6 +90,7 @@ const Camera = ({setImage,image,setImageFile,text, setText}) => {
         <>
             {onCamera ?
                 <>
+
                     <Webcam
                         ref={webcamRef}
                         audio={false}

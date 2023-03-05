@@ -13,7 +13,7 @@ export default function CustomizedList() {
 		<>
 			<Theme>
 				<ListItem component="div" disablePadding>
-					<ListItemButton sx={{ height: 56 }}>
+					<ListItemButton sx={{ height: 56 }} >
 						<ListItemIcon>
 							<DinnerDiningIcon color="primary" />
 						</ListItemIcon>

@@ -49,12 +49,10 @@ const Login = () => {
 	};
 
 	const handleLogIn = async (e) => {
-		e.preventDefault();
 		const userInfo = {
 			email: email,
 			password: password,
 		};
-
 		try {
 			const response = await fetch('http://localhost:3333/users/login', {
 				method: 'POST',
