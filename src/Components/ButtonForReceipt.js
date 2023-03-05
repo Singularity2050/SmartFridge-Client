@@ -15,7 +15,7 @@ export default function ButtonForReceipt({image}) {
     }
     const handleClick = async (event) => {
         event.preventDefault();
-        handleLoading();
+        // handleLoading();
         const result = await Tesseract.recognize(Walmart, 'eng');
         const text=result.data.text.replace(/\n/g, '')
 
