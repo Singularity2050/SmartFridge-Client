@@ -130,7 +130,7 @@ export default function ProfileComponent(props) {
 						colors={[line1Color]}
 						layers={['grid', 'axes', 'lines', 'markers', 'legends']}
 						axisLeft={{
-							legend: 'My Donation',
+							legend: 'My Spending ($)',
 							legendPosition: 'middle',
 							legendOffset: -40,
 						}}

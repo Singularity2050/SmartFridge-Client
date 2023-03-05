@@ -15,7 +15,7 @@ const StyledRating = styled(Rating)({
     },
 });
 
-export default function CustomizedRating() {
+export default function CustomizedRating(props) {
     return (
         <Box
             sx={{
@@ -24,7 +24,7 @@ export default function CustomizedRating() {
         >
             <StyledRating
                 name="customized-color"
-                defaultValue={1}
+                defaultValue={props.heart}
                 getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
                 precision={1}
                 icon={<FavoriteIcon fontSize="inherit" />}

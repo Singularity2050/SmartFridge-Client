@@ -19,7 +19,7 @@ const style = {
     pb: 3,
 };
 
-export default function ReceptModel() {
+export default function ReceptModel(props) {
     const [open, setOpen] = React.useState(false);
 
     const handleOpen = () => {
@@ -31,7 +31,7 @@ export default function ReceptModel() {
 
     return (
         <div>
-            <AlignItemsList handler={handleOpen}/>
+            <AlignItemsList handler={handleOpen} heart={props.heart}/>
             <Modal
                 open={open}
                 onClose={handleClose}

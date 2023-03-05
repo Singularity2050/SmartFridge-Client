@@ -11,7 +11,7 @@ export default function AlignItemsList(props) {
     return (
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
             <ListItem alignItems="flex-start">
-                <Rating/>
+                <Rating heart={props.heart}/>
                 <ListItemText
                     primary="ketchup Butter Soup"
                     secondary={

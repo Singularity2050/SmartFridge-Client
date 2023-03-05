@@ -29,7 +29,7 @@ const Favourites = () => {
 						/>
 					</ListItemButton>
 				</ListItem>
-				<ReceptModel/>
+				<ReceptModel heart={1}/>
 			</Theme>
 			<NavBottom/>
 		</>

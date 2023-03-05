@@ -30,7 +30,7 @@ const Recipes = () => {
                         />
                     </ListItemButton>
                 </ListItem>
-                <ReceptModel/>
+                <ReceptModel heart={0}/>
             </Theme>
             <NavBottom/>
         </>

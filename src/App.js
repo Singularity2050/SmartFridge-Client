@@ -10,6 +10,7 @@ import NavBottom from './Components/NavBottom';
 import Ripeness from './Components/Ripeness';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
+import LogoPage from "./Pages/Logo";
 
 function App() {
 	//Login
@@ -27,6 +28,7 @@ function App() {
 				<Route path={'/recipes'} element={<Recipes />} />
 				<Route path={'/favorites'} element={<Favourites />} />
 				<Route path={'/profile'} element={<Profile />} />
+				<Route path={'/logo'} element={<LogoPage />} />
 
 			</Routes>
 		</BrowserRouter>
