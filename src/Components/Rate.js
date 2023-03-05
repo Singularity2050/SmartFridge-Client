@@ -22,14 +22,15 @@ export default function CustomizedRating() {
                 '& > legend': { mt: 2 },
             }}
         >
-            <Typography component="legend">Custom icon and color</Typography>
             <StyledRating
                 name="customized-color"
-                defaultValue={2}
+                defaultValue={0}
                 getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
-                precision={0.5}
+                precision={1}
                 icon={<FavoriteIcon fontSize="inherit" />}
                 emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
+                max={1}
+                sx={{margin:2}}
             />
         </Box>
     );

@@ -55,9 +55,9 @@ const videoConstraints = {
     facingMode: "environment"
 };
 
-const Camera = () => {
+const Camera = ({setImage,image,setImageFile,text, setText}) => {
     const webcamRef = useRef(null);
-    const [image, setImage] = React.useState(basicImages);
+    // const [image, setImage] = React.useState(basicImages);
     const [onCamera, setOnCamera] = React.useState(false);
     const setOnCameraController = () => setOnCamera(true);
     const setOffCameraController = () =>setOnCamera(false);
@@ -87,39 +87,46 @@ const Camera = () => {
         <>
             {onCamera ?
                 <>
-                <Webcam
-                    ref={webcamRef}
-                    audio={false}
-                    screenshotFormat="image/jpeg"
-                    videoConstraints={videoConstraints}
-                    onUserMedia={onUserMedia}
-                    width={window.innerWidth}
-                    height={window.innerHeight-110}
-                />
-                <IconButton onClick={capturePhoto} style={{position:"absolute", left:window.innerWidth/2-25, top:window.innerHeight-230}}>
-                    <SurroundSoundIcon style={{fontSize: "xxx-large"}}fontSize={"large"}/>
-                </IconButton>
-                {/*<button onClick={() => setUrl(null)}>Refresh</button>*/}
+                    <Webcam
+                        ref={webcamRef}
+                        audio={false}
+                        screenshotFormat="image/jpeg"
+                        videoConstraints={videoConstraints}
+                        onUserMedia={onUserMedia}
+                        width={window.innerWidth}
+                        height={window.innerHeight - 110}
+                    />
+                    <IconButton onClick={capturePhoto} style={{
+                        position: "absolute",
+                        left: window.innerWidth / 2 - 25,
+                        top: window.innerHeight - 230
+                    }}>
+                        <SurroundSoundIcon style={{fontSize: "xxx-large"}} fontSize={"large"}/>
+                    </IconButton>
+                    {/*<button onClick={() => setUrl(null)}>Refresh</button>*/}
                 </>
                 :
                 mode == "basicMode" ?
-                <CameraBackGround controller={setOnCameraController} image={image} mode={mode}/>:
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: window.innerWidth, minHeight: window.innerHeight-60 }}>
-                    <ImageSrc style={{ backgroundImage: `url(${image.url})`, minWidth:window.innerWidth, minHeight:window.innerHeight-60}}/>
-                    <ImageBackdrop className="MuiImageBackdrop-root" />
-                    <Image sx={{minWidth:window.innerWidth, minHeight:window.innerHeight-60}}>
-                    </Image>
-                    <ButtonForReceipt/>
-                </Box>
-
+                    <CameraBackGround controller={setOnCameraController} image={image} mode={mode}
+                                      setImageFile={setImageFile} text={text} setText={setText}/> :
+                    <Box sx={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        minWidth: window.innerWidth,
+                        minHeight: window.innerHeight - 60
+                    }}>
+                        <ImageSrc style={{
+                            backgroundImage: `url(${image.url})`,
+                            minWidth: window.innerWidth,
+                            minHeight: window.innerHeight - 60
+                        }}/>
+                        <ImageBackdrop className="MuiImageBackdrop-root"/>
+                        <Image sx={{minWidth: window.innerWidth, minHeight: window.innerHeight - 60}}>
+                        </Image>
+                        <ButtonForReceipt/>
+                    </Box>
             }
-            {/*{url && (*/}
-            {/*    <div>*/}
-            {/*        <img src={url} alt="Screenshot" />*/}
-            {/*    </div>*/}
-            {/*)}*/}
-        </>
-    );
+            </>)
 };
 
 export default Camera;

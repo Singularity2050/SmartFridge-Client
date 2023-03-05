@@ -4,14 +4,13 @@ import Stack from '@mui/material/Stack';
 import { deepOrange, deepPurple } from '@mui/material/colors';
 import Theme from "../Components/Theme";
 import NavBottom from "../Components/NavBottom";
+import ProfileComponent from "../Components/profile";
 
 const Profile = () => {
 	return (
 		<>
 			<Theme>
-				<Stack direction="row" spacing={2}>
-					<Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
-				</Stack>
+				<ProfileComponent/>
 			</Theme>
 		<NavBottom/>
 		</>
