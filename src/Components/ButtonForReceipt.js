@@ -10,7 +10,7 @@ import Walmart from "../Image/receipt.jpeg"
 
 export default function ButtonForReceipt({image}) {
     const [loading, setLoading] = React.useState(false);
-    function handleLoading() {
+    {
         setLoading(true);
     }
     const handleClick = async (event) => {
@@ -19,25 +19,25 @@ export default function ButtonForReceipt({image}) {
         const result = await Tesseract.recognize(Walmart, 'eng');
         const text=result.data.text.replace(/\n/g, '')
 
-        // const apiKey = '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';
-        // const model = 'text-davinci-002';
-        // const prompt = `${text}  I need to parse it to take out each item with quantity and cost into a json format.Just give me the json file!\n`;
-        //
-        // const response = await fetch('https://api.openai.com/v1/completions', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': `Bearer ${apiKey}`
-        //     },
-        //     body: JSON.stringify({
-        //         prompt: prompt,
-        //         max_tokens: 2048,
-        //         n: 1,
-        //         model: model
-        //     })
-        // });
+         const apiKey = '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';
+         const model = 'text-davinci-002';
+         const prompt = `${text}  I need to parse it to take out each item with quantity and cost into a json format.Just give me the json file!\n`;
 
-        //const { choices } = await response.json().then(setLoading(false));
+         const response = await fetch('https://api.openai.com/v1/completions', {
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json',
+                 'Authorization': `Bearer ${apiKey}`
+             },
+             body: JSON.stringify({
+                 prompt: prompt,
+                 max_tokens: 2048,
+                 n: 1,
+                 model: model
+             })
+         });
+
+        const { choices } = await response.json().then(setLoading(false));
         console.log(text);
 
     };
