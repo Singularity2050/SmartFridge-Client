@@ -96,7 +96,7 @@ const data = [
     },
 ];
 
-const line1Color = "green";
+const line1Color = "Chartreuse";
 
 export default function ProfileComponent(props) {
     console.log(props)
@@ -107,7 +107,10 @@ export default function ProfileComponent(props) {
     return (
         <>
             <Typography variant="h4" margin={1} marginTop={3}> Abhishek CoConut</Typography>
-            <Rating name="half-rating" defaultValue={0.5} precision={0.5} margin={1}/>
+            <Stack direction="row" spacing={2}>
+                <Rating name="half-rating" defaultValue={0.5} precision={0.5}/>
+                <Typography variant= "subtitle2"> Point: 5842</Typography>
+            </Stack>
             <hr/>
             <div className="wrapper">
                 <div className="graphContainer">
@@ -117,7 +120,7 @@ export default function ProfileComponent(props) {
                         colors={[line1Color]}
                         layers={["grid", "axes", "lines", "markers", "legends"]}
                         axisLeft={{
-                            legend: "My Donation",
+                            legend: "My Spending ($)",
                             legendPosition: "middle",
                             legendOffset: -40
                         }}

@@ -10,6 +10,7 @@ import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import AlignItemsList from "../Components/RecipeList";
+import ReceptModel from "../Components/Modal";
 const Recipes = () => {
     return (
         <>
@@ -29,7 +30,7 @@ const Recipes = () => {
                         />
                     </ListItemButton>
                 </ListItem>
-                <AlignItemsList/>
+                <ReceptModel/>
             </Theme>
             <NavBottom/>
         </>

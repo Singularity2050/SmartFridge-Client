@@ -38,10 +38,16 @@ export default function ReceptModel() {
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description"
             >
-                <Box sx={{ ...style, width: 400 }}>
-                    <h2 id="parent-modal-title">Text in a modal</h2>
-                    <p id="parent-modal-description" color={"white"}>
-                        Tomato
+                <Box sx={{ ...style, width: window.innerWidth-70 }}>
+                    <h2 id="parent-modal-title" style={{color:"white"}}>Ketchup Butter Soup</h2>
+                    <p id="parent-modal-description" style={{color:"white"}}>
+                        [Two] Tomato
+                    </p>
+                    <p id="parent-modal-description" style={{color:"white"}}>
+                        [1Kg] Butter
+                    </p>
+                    <p id="parent-modal-description" style={{color:"white"}}>
+                        [200ml] Water
                     </p>
                     <Button onClick={handleClose}>Close</Button>
                 </Box>
