@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
@@ -14,15 +11,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-import { Tabs, Tab } from '@mui/material';
-
-const Item = styled(Paper)(({ theme }) => ({
-	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-	...theme.typography.body2,
-	padding: theme.spacing(1),
-	textAlign: 'center',
-	color: theme.palette.text.secondary,
-}));
+import { useSetRecoilState } from 'recoil';
+import { globalState } from '../recoil';
 
 function Copyright(props) {
 	return (
@@ -47,21 +37,15 @@ const theme = createTheme();
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [user, setUser] = useState('');
 	const navigate = useNavigate();
-
-	const registerHandler = () => {
-		navigate('/register');
-	};
+	const setGlobalUser = useSetRecoilState(globalState);
 
 	const handleEmail = (e) => {
 		setEmail(e);
-		console.log(email);
 	};
 
 	const handlePassword = (e) => {
 		setPassword(e);
-		console.log(password);
 	};
 
 	const handleLogIn = async (e) => {
@@ -70,6 +54,7 @@ const Login = () => {
 			email: email,
 			password: password,
 		};
+
 		try {
 			const response = await fetch('http://localhost:3333/users/login', {
 				method: 'POST',
@@ -78,18 +63,23 @@ const Login = () => {
 				},
 				body: JSON.stringify(userInfo),
 			});
-			const user = response.json();
+			const user = await response.json();
+			setGlobalUser(user);
+			console.log('user', user);
 
 			if (user) {
-				console.log('yyaaaaaaaaaaaaaaaay');
 				navigate('/home');
 			} else {
 				console.log('wrong email or password!');
-				window.alert('wrong email or password!');
+				navigate('/');
 			}
 		} catch (error) {
 			console.error(error);
 		}
+	};
+
+	const handleRegister = () => {
+		navigate('/register');
 	};
 
 	return (
@@ -169,7 +159,7 @@ const Login = () => {
 									<Grid item>
 										<Button
 											sx={{ fontSize: '0.7rem', textDecoration: 'underline' }}
-											onClick={() => navigate('/register')}
+											onClick={handleRegister}
 										>
 											"Sign Up"
 										</Button>
@@ -184,4 +174,5 @@ const Login = () => {
 		</ThemeProvider>
 	);
 };
+
 export default Login;

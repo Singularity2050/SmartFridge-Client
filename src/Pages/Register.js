@@ -1,33 +1,163 @@
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { globalState } from '../recoil';
 
-const Item = styled(Paper)(({ theme }) => ({
-	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-	...theme.typography.body2,
-	padding: theme.spacing(1),
-	textAlign: 'center',
-	color: theme.palette.text.secondary,
-}));
+function Copyright(props) {
+	return (
+		<Typography
+			variant="body2"
+			color="text.secondary"
+			align="center"
+			{...props}
+		>
+			{'Copyright © '}
+			<Link color="inherit" href="/">
+				SmartFridge
+			</Link>{' '}
+			{new Date().getFullYear()}
+			{'.'}
+		</Typography>
+	);
+}
+
+const theme = createTheme();
 
 const Register = () => {
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const navigate = useNavigate();
+	const setGlobalUser = useSetRecoilState(globalState);
+
+	const handleName = (e) => {
+		setName(e);
+	};
+
+	const handleEmail = (e) => {
+		setEmail(e);
+	};
+
+	const handlePassword = (e) => {
+		setPassword(e);
+	};
+
+	const handleRegister = async (e) => {
+		e.preventDefault();
+
+		const userInfo = {
+			name: name,
+			email: email,
+			password: password,
+		};
+		try {
+			const response = await fetch('http://localhost:3333/users/new', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(userInfo),
+			});
+
+			const newUser = await response.json();
+			setGlobalUser(newUser);
+
+			console.log(newUser);
+
+			navigate('/home');
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
 	return (
-		<Box sx={{ width: '100%' }}>
-			<Stack spacing={2}>
-				<Item>
-					<AccountCircleIcon />
-				</Item>
-				<Item>
-					<Grid sx={2}></Grid>
-					<Grid sx={2}></Grid>
-				</Item>
-				<Item>Item 3</Item>
-			</Stack>
-		</Box>
+		<ThemeProvider theme={theme}>
+			<Grid container>
+				<Grid
+					item
+					sm={6}
+					md={6}
+					sx={{ backgroundColor: 'rgba(0,0,0,0.8)' }}
+				></Grid>
+				<Grid item sm={6} md={6}>
+					<Container component="main" maxWidth="xs">
+						<Box
+							sx={{
+								marginTop: 15,
+								marginLeft: 1,
+								display: 'flex',
+								flexDirection: 'column',
+								alignItems: 'center',
+							}}
+						>
+							<Typography
+								component="h1"
+								variant="h5"
+								onClick={() => navigate('/')}
+							>
+								Smart Fridge
+							</Typography>
+							[Mobile View Only]
+							<Box component="form" noValidate sx={{ mt: 1 }}>
+								<TextField
+									margin="normal"
+									required
+									fullWidth
+									// id="name"
+									label="Full Name"
+									name="name"
+									autoComplete="name"
+									autoFocus
+									onChange={(e) => handleName(e.target.value)}
+								/>
+								<TextField
+									margin="normal"
+									required
+									fullWidth
+									// id="email"
+									label="Email Address"
+									name="email"
+									autoComplete="email"
+									autoFocus
+									onChange={(e) => handleEmail(e.target.value)}
+								/>
+								<TextField
+									margin="normal"
+									required
+									fullWidth
+									name="password"
+									label="Password"
+									type="password"
+									id="password"
+									autoComplete="current-password"
+									onChange={(e) => handlePassword(e.target.value)}
+								/>
+								<Button
+									type="submit"
+									fullWidth
+									variant="contained"
+									sx={{ mt: 3, mb: 2 }}
+									onClick={(e) => handleRegister(e)}
+								>
+									Register
+								</Button>
+							</Box>
+						</Box>
+						<Copyright sx={{ mt: 8, mb: 4 }} />
+					</Container>
+				</Grid>
+			</Grid>
+		</ThemeProvider>
 	);
 };
+
 export default Register;
